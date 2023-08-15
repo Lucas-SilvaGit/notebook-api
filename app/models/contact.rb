@@ -10,10 +10,14 @@ class Contact < ApplicationRecord
     self.kind.description
   end
 
+  def phone_numbers
+    phones.pluck(:phone_number)
+  end
+
   def as_json(options={})
     super(
       root: true,
-      methods: [:kind_description, :author]         #esse traz ja de forma o atributo direto na tabela
+      methods: [:kind_description, :phone_numbers, :author] #esse traz ja de forma o atributo direto na tabela
       # include: { kind: { only: :description} }     esse traz de forma aninhada
     )
   end
