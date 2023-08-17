@@ -1,13 +1,13 @@
 class AddressesController < ApplicationController
-  before_action :set_address, only: [:show]
+  before_action :set_contact
 
   def show
-    render json: @address
+    render json: @contact.address
   end
 
   private
 
-  def set_address
-    @address = Contact.find(params[:contact_id]).address
+  def set_contact
+    @contact = Contact.find(params[:contact_id])
   end
 end
