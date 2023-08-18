@@ -15,6 +15,22 @@ class AddressesController < ApplicationController
     end
   end
 
+  # CREATE /contacts/1/address
+  def create
+    @contact.address = Address.new(address_params)
+
+    if @contact.save
+      render json: @contact.address, status: :created, location: contact_address_url(@contact)
+    else
+      render json: @contact.erros, status: :unprocessable_entity
+    end
+  end
+
+  # CREATE /contacts/1/address/id
+  def destroy
+    @contact.address.destroy
+  end
+
   private
 
   def set_contact
