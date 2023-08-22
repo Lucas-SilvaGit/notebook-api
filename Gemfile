@@ -46,3 +46,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "devise_token_auth", "~> 1.2"
 
 gem 'versionist'
+
+gem 'kaminari'
+
+gem 'api-pagination'
