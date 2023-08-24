@@ -11,7 +11,7 @@ module V1
 
       @contacts = Contact.all.page(page_number).per(per_page)
 
-      if stale?(last_modified: @contacts[0].updated_at)
+      if stale?(etag: @contacts)
         render json:@contacts
       end
     end
