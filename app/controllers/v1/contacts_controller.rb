@@ -18,7 +18,7 @@ module V1
 
     # GET /contacts/1
     def show
-      render json: @contact, include: [:kind, :address, :phones]
+      render json: @contact
     end
 
     # POST /contacts
